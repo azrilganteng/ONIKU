@@ -91,35 +91,51 @@ $(document).ready(function () {
     $('#avatar-right').on('click', function () { $('#btn-next').click(); });
 
     renderSlider();
-    const makananSlider = $('#makanan-slider');
+        // --- Auto-Slide Super Mulus untuk Section Makanan (Native JS) ---
+    const sliderEl = document.getElementById('makanan-slider');
     let autoSlideTimer = null;
 
     function startAutoSlideMakanan() {
-        if (autoSlideTimer) clearInterval(autoSlideTimer);
+        stopAutoSlideMakanan();
         
         autoSlideTimer = setInterval(function() {
-            if (!makananSlider.length) return;
+            if (!sliderEl) return;
             
-            const cardWidth = makananSlider.find('.card-product').outerWidth(true) || 300;
-            const maxScroll = makananSlider[0].scrollWidth - makananSlider[0].clientWidth;
+            // Hitung lebar 1 kartu + gap antar kartu
+            const firstCard = sliderEl.querySelector('.card-product');
+            const cardWidth = firstCard ? firstCard.offsetWidth + 20 : 300; // 20 adalah estimasi gap-5
+            const maxScroll = sliderEl.scrollWidth - sliderEl.clientWidth;
 
-            if (makananSlider.scrollLeft() >= maxScroll - 10) {
-                makananSlider.animate({ scrollLeft: 0 }, 100);
+            // Jika sudah di ujung kanan, kembali mulus ke awal
+            if (sliderEl.scrollLeft >= maxScroll - 15) {
+                sliderEl.scrollTo({ left: 0, behavior: 'smooth' });
             } else {
-                makananSlider.animate({ scrollLeft: makananSlider.scrollLeft() + cardWidth }, 600);
+                sliderEl.scrollBy({ left: cardWidth, behavior: 'smooth' });
             }
-        }, 300); 
+        }, 3500); // Geser setiap 3.5 detik (lebih nyaman di mata)
     }
 
     function stopAutoSlideMakanan() {
         if (autoSlideTimer) clearInterval(autoSlideTimer);
     }
 
-    // Jalankan auto-slide
+    // Jalankan auto-slide awal
     startAutoSlideMakanan();
 
-    // Hentikan sementara saat mouse diarahkan ke kartu (agar mudah diklik)
-    makananSlider.on('mouseenter touchstart', stopAutoSlideMakanan);
-    makananSlider.on('mouseleave touchend', startAutoSlideMakanan);
+    // Event interaksi:
+    if (sliderEl) {
+        // Laptop: jeda saat kursor di atas slider
+        sliderEl.addEventListener('mouseenter', stopAutoSlideMakanan);
+        sliderEl.addEventListener('mouseleave', startAutoSlideMakanan);
+        
+        // HP: Saat jari menyentuh, matikan auto-slide
+        sliderEl.addEventListener('touchstart', stopAutoSlideMakanan, { passive: true });
+        
+        // HP: Beri jeda 4 detik setelah jari diangkat sebelum auto-slide aktif lagi
+        sliderEl.addEventListener('touchend', function() {
+            stopAutoSlideMakanan();
+            setTimeout(startAutoSlideMakanan, 4000);
+        }, { passive: true });
+    }
 
 });
