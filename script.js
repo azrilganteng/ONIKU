@@ -72,7 +72,6 @@ $(document).ready(function () {
 
             $('.avatar-card').removeClass('-translate-x-8 translate-x-8 opacity-0');
 
-            // Kembalikan Opacity Asli
             $('#avatar-left, #avatar-right').addClass('opacity-40');
             $('#avatar-center').addClass('opacity-100');
         }, 200);
@@ -92,5 +91,35 @@ $(document).ready(function () {
     $('#avatar-right').on('click', function () { $('#btn-next').click(); });
 
     renderSlider();
+    const makananSlider = $('#makanan-slider');
+    let autoSlideTimer = null;
+
+    function startAutoSlideMakanan() {
+        if (autoSlideTimer) clearInterval(autoSlideTimer);
+        
+        autoSlideTimer = setInterval(function() {
+            if (!makananSlider.length) return;
+            
+            const cardWidth = makananSlider.find('.card-product').outerWidth(true) || 300;
+            const maxScroll = makananSlider[0].scrollWidth - makananSlider[0].clientWidth;
+
+            if (makananSlider.scrollLeft() >= maxScroll - 10) {
+                makananSlider.animate({ scrollLeft: 0 }, 100);
+            } else {
+                makananSlider.animate({ scrollLeft: makananSlider.scrollLeft() + cardWidth }, 600);
+            }
+        }, 300); 
+    }
+
+    function stopAutoSlideMakanan() {
+        if (autoSlideTimer) clearInterval(autoSlideTimer);
+    }
+
+    // Jalankan auto-slide
+    startAutoSlideMakanan();
+
+    // Hentikan sementara saat mouse diarahkan ke kartu (agar mudah diklik)
+    makananSlider.on('mouseenter touchstart', stopAutoSlideMakanan);
+    makananSlider.on('mouseleave touchend', startAutoSlideMakanan);
 
 });
