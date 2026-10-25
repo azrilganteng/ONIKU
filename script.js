@@ -40,10 +40,10 @@ $(document).ready(function () {
 
 
     const teamMembers = [
-        { name: "Azril Firansyah.H", image: "image/4.jpg" },
-        { name: "Mario Christopher.I", image: "image/3.jpg" },
+        { name: "Azril Firansyah.H", image: "image/1.jpg" },
+        { name: "Mario Christopher.I", image: "image/4.jpg" },
         { name: "Laili Risqy.A", image: "image/2.jpg" },
-        { name: "Osama Nur.M", image: "image/1.jpg" }
+        { name: "Osama Nur.M", image: "image/3.png" }
     ];
 
     let currentIndex = 0;
