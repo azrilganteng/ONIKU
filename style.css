@@ -1,7 +1,8 @@
-/* Custom CSS Tambahan jika diperlukan */
+/* Custom CSS Tambahan */
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
+
 /* Sembunyikan scrollbar tapi tetap bisa di-scroll manual */
 .no-scrollbar::-webkit-scrollbar {
     display: none;
@@ -9,4 +10,10 @@ body {
 .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+}
+
+/* Haluskan seleksi teks */
+::selection {
+    background-color: #D97706;
+    color: #ffffff;
 }

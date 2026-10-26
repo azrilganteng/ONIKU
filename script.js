@@ -35,10 +35,10 @@ $(document).ready(function () {
     // Klik tombol pesanan di dalam modal (mengarah ke Google Form)
     $('#modal-order-btn').on('click', function () {
         closeModal();
-        window.open('https://forms.gle/YOUR_GOOGLE_FORM_ID', '_blank');
+        window.open('https://forms.gle/1cHA12sBRiZugDF29', '_blank');
     });
 
-
+    // Data Anggota Tim
     const teamMembers = [
         { name: "Azril Firansyah.H", image: "image/1.jpg" },
         { name: "Mario Christopher.I", image: "image/4.jpg" },
@@ -60,7 +60,7 @@ $(document).ready(function () {
 
         setTimeout(function () {
             // Update Isi Teks
-            $('#avatar-left .name-tag ').text(teamMembers[leftIndex].name);
+            $('#avatar-left .name-tag').text(teamMembers[leftIndex].name);
             $('#avatar-center .name-tag').text(teamMembers[centerIndex].name);
             $('#avatar-right .name-tag').text(teamMembers[rightIndex].name);
 
@@ -91,33 +91,60 @@ $(document).ready(function () {
     $('#avatar-right').on('click', function () { $('#btn-next').click(); });
 
     renderSlider();
-        // --- Auto-Slide Super Mulus untuk Section Makanan (Native JS) ---
+
+    // --- Auto-Slide Super Mulus untuk Section Makanan (Native JS) ---
     const sliderEl = document.getElementById('makanan-slider');
     let autoSlideTimer = null;
 
+    function getCardWidth() {
+        if (!sliderEl) return 300;
+        const firstCard = sliderEl.querySelector('.card-product');
+        return firstCard ? firstCard.offsetWidth + 24 : 320;
+    }
+
+    function slideNext() {
+        if (!sliderEl) return;
+        const cardWidth = getCardWidth();
+        const maxScroll = sliderEl.scrollWidth - sliderEl.clientWidth;
+        if (sliderEl.scrollLeft >= maxScroll - 15) {
+            sliderEl.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+            sliderEl.scrollBy({ left: cardWidth, behavior: 'smooth' });
+        }
+    }
+
+    function slidePrev() {
+        if (!sliderEl) return;
+        const cardWidth = getCardWidth();
+        if (sliderEl.scrollLeft <= 15) {
+            const maxScroll = sliderEl.scrollWidth - sliderEl.clientWidth;
+            sliderEl.scrollTo({ left: maxScroll, behavior: 'smooth' });
+        } else {
+            sliderEl.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+        }
+    }
+
     function startAutoSlideMakanan() {
         stopAutoSlideMakanan();
-        
-        autoSlideTimer = setInterval(function() {
-            if (!sliderEl) return;
-            
-            // Hitung lebar 1 kartu + gap antar kartu
-            const firstCard = sliderEl.querySelector('.card-product');
-            const cardWidth = firstCard ? firstCard.offsetWidth + 20 : 300; // 20 adalah estimasi gap-5
-            const maxScroll = sliderEl.scrollWidth - sliderEl.clientWidth;
-
-            // Jika sudah di ujung kanan, kembali mulus ke awal
-            if (sliderEl.scrollLeft >= maxScroll - 15) {
-                sliderEl.scrollTo({ left: 0, behavior: 'smooth' });
-            } else {
-                sliderEl.scrollBy({ left: cardWidth, behavior: 'smooth' });
-            }
-        }, 3500); // Geser setiap 3.5 detik (lebih nyaman di mata)
+        autoSlideTimer = setInterval(slideNext, 3500);
     }
 
     function stopAutoSlideMakanan() {
         if (autoSlideTimer) clearInterval(autoSlideTimer);
     }
+
+    // Tombol Navigasi Manual Makanan Slider
+    $('#makanan-prev').on('click', function () {
+        stopAutoSlideMakanan();
+        slidePrev();
+        setTimeout(startAutoSlideMakanan, 5000);
+    });
+
+    $('#makanan-next').on('click', function () {
+        stopAutoSlideMakanan();
+        slideNext();
+        setTimeout(startAutoSlideMakanan, 5000);
+    });
 
     // Jalankan auto-slide awal
     startAutoSlideMakanan();
@@ -127,12 +154,12 @@ $(document).ready(function () {
         // Laptop: jeda saat kursor di atas slider
         sliderEl.addEventListener('mouseenter', stopAutoSlideMakanan);
         sliderEl.addEventListener('mouseleave', startAutoSlideMakanan);
-        
+
         // HP: Saat jari menyentuh, matikan auto-slide
         sliderEl.addEventListener('touchstart', stopAutoSlideMakanan, { passive: true });
-        
+
         // HP: Beri jeda 4 detik setelah jari diangkat sebelum auto-slide aktif lagi
-        sliderEl.addEventListener('touchend', function() {
+        sliderEl.addEventListener('touchend', function () {
             stopAutoSlideMakanan();
             setTimeout(startAutoSlideMakanan, 4000);
         }, { passive: true });
