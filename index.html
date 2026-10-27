@@ -16,20 +16,17 @@
 <body
     class="bg-[linear-gradient(to_bottom,rgba(255,255,255,0.65),rgba(255,255,255,0.65)),url('/image/background.jpg')] bg-fixed bg-cover bg-center no-repeat min-h-screen flex flex-col items-center text-[#FFFDF8] font-sans relative overflow-x-hidden w-full max-w-full">
 
-    <!-- Ambient Glowing Background Elements (Strictly Clipped to Prevent Mobile Overflow) -->
-    <div class="absolute inset-0 overflow-hidden pointer-events-none -z-10">
+    <div class="absolute inset-0 overflow-visible pointer-events-none -z-10">
         <div class="absolute top-20 left-10 w-72 h-72 sm:w-96 sm:h-96 bg-[#91171D]/20 rounded-full blur-3xl"></div>
         <div class="absolute top-[600px] right-10 w-72 h-72 sm:w-96 sm:h-96 bg-[#D97706]/15 rounded-full blur-3xl"></div>
         <div class="absolute top-[1800px] left-10 w-72 h-72 sm:w-96 sm:h-96 bg-[#430C0E]/30 rounded-full blur-3xl"></div>
     </div>
 
-    <!-- Header & Navigasi Responsif (Mobile-Optimized) -->
     <header
-        class="w-full bg-[#91171D]/95 backdrop-blur-md py-2 px-3 sm:px-6 shadow-lg sticky top-0 z-50 border-b border-[#E8D0B8]/20">
+        class="w-full bg-[#91171D]/95 backdrop-blur-md py-2 px-3 sm:px-6 shadow-lg fixed top-0 z-50 border-b border-[#E8D0B8]/20">
         
         <div class="w-full max-w-5xl mx-auto flex items-center justify-between gap-2">
-            
-            <!-- Logo & Brand (Shrink-0 agar tidak terdesak di layar HP) -->
+           
             <a href="#home" class="flex items-center gap-2 shrink-0 group">
                 <img src="image/logo.jpg" alt="Logo ONIKU"
                     class="w-8 h-8 sm:w-11 sm:h-11 rounded-full object-cover border-2 border-[#E8D0B8]/40 shadow-sm shrink-0 group-hover:scale-105 group-hover:border-[#D97706] transition duration-300">
@@ -39,7 +36,6 @@
                 </div>
             </a>
 
-            <!-- Kapsul Navigasi (Lebar Responsif: Pas di HP tanpa bocor) -->
             <nav class="flex-1 max-w-[270px] sm:max-w-md mx-auto">
                 <div
                     class="w-full bg-[#E8D0B8]/95 backdrop-blur-md py-1 px-2.5 sm:px-6 rounded-full shadow-md flex items-center justify-between text-[#352321] border border-white/20">
@@ -81,20 +77,16 @@
     </header>
 
 
-    <!-- Hero Section -->
     <section id="home" class="w-full max-w-5xl px-3 sm:px-4 mt-4 sm:mt-6 mb-16">
         <div class="bg-[#430C0E]/95 rounded-3xl shadow-2xl overflow-hidden flex flex-col items-center text-center border border-[#D97706]/30 relative w-full">
-            
-            <!-- Hero Image Banner -->
+        
             <div class="w-full h-56 sm:h-80 md:h-[420px] relative overflow-hidden bg-gray-900 group">
                 <img src="image/product/bundle c.png" alt="Produk Unggulan ONIKU"
                     class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-700">
-                
-                <!-- Overlay Vignette -->
+         
                 <div class="absolute inset-0 bg-gradient-to-t from-[#430C0E] via-black/20 to-black/40"></div>
             </div>
 
-            <!-- Hero Text Content -->
             <div class="p-5 sm:p-8 md:p-10 max-w-3xl flex flex-col items-center w-full">
                 <div class="inline-flex items-center gap-1.5 sm:gap-2 bg-[#352321] text-[#D97706] border border-[#D97706]/30 py-1 px-3 sm:px-4 rounded-full text-[10px] sm:text-xs font-bold tracking-widest uppercase mb-3 shadow-inner">
                     <i class="fa-solid fa-star text-[9px]"></i> SENSASI BARU ONIGIRI KEKINIAN <i class="fa-solid fa-star text-[9px]"></i>
@@ -108,7 +100,6 @@
                     Nikmati kelezatan Onigiri khas Jepang dengan racikan bumbu autentik dan isian daging melimpah yang dipadukan nasi pulen gurih. Praktis, mengenyangkan, dan siap menemani setiap momen aktivitas harianmu!
                 </p>
 
-                <!-- Value Highlights Pills -->
                 <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-2 sm:gap-3 mb-6 text-xs text-[#E8D0B8] w-full max-w-md">
                     <span class="bg-[#352321]/80 border border-[#E8D0B8]/20 px-3 py-1.5 rounded-full flex items-center justify-center gap-1.5">
                         <i class="fa-solid fa-check text-[#D97706]"></i> Isian Daging Melimpah
@@ -121,7 +112,6 @@
                     </span>
                 </div>
 
-                <!-- Action Buttons -->
                 <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto justify-center px-4">
                     <a href="#makanan"
                         class="inline-flex items-center justify-center gap-2 bg-[#D97706] hover:bg-[#b45309] text-white font-bold py-3 px-6 sm:px-8 rounded-full transition duration-300 shadow-lg hover:shadow-xl transform active:scale-95 text-sm md:text-base">
@@ -134,8 +124,6 @@
         </div>
     </section>
 
-
-    <!-- Supporting Features / Trust Strip -->
     <section class="w-full max-w-5xl px-3 sm:px-4 mb-20">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-4 w-full">
             
@@ -173,10 +161,8 @@
     </section>
 
 
-    <!-- Section Produk Card Makanan (Auto-Slider Style Figma) -->
     <section id="makanan" class="w-full max-w-5xl px-3 sm:px-4 mt-4 mb-24 overflow-hidden">
-        
-        <!-- Header Judul Section dengan Kontrol Slider -->
+       
         <div class="flex items-center justify-between mb-4 sm:mb-6">
             <div class="flex items-center gap-2 sm:gap-3">
                 <div class="bg-[#352321] py-2 px-4 sm:py-2.5 sm:px-6 rounded-xl shadow-md border border-[#E8D0B8]/20 flex items-center gap-2 w-fit">
@@ -189,12 +175,10 @@
            
         </div>
 
-        <!-- Slider Container Track (Single Valid Element) -->
         <div class="relative w-full">
             <div id="makanan-slider"
                 class="flex gap-4 sm:gap-6 overflow-x-auto scroll-smooth no-scrollbar snap-x snap-mandatory py-3 px-1 select-none">
 
-                <!-- Card 1 -->
                 <div class="card-product snap-center shrink-0 w-60 sm:w-72 md:w-80 h-[380px] sm:h-[450px] rounded-3xl overflow-hidden relative shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer group border border-white/10"
                     data-category="Makanan" data-title="Oniku Ayam Teriyaki" data-price="Rp 12.000"
                     data-desc="Onigiri Ayam Teriyaki dengan isian ayam teriyaki yang juicy, gurih, dan kaya rasa. Dibalut nasi pulen yang mengenyangkan, menjadikannya pilihan praktis dan lezat untuk menemani aktivitas Anda kapan saja.">
@@ -218,7 +202,6 @@
                     </div>
                 </div>
 
-                <!-- Card 2 -->
                 <div class="card-product snap-center shrink-0 w-60 sm:w-72 md:w-80 h-[380px] sm:h-[450px] rounded-3xl overflow-hidden relative shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer group border border-white/10"
                     data-category="Makanan" data-title="Oniku Tuna Mayo" data-price="Rp 12.000"
                     data-desc="Onigiri Tuna Mayo dengan isian tuna mayo yang lezat dan gurih. Dibalut nasi pulen yang mengenyangkan, menjadikannya pilihan praktis dan lezat untuk menemani aktivitas Anda kapan saja.">
@@ -242,7 +225,6 @@
                     </div>
                 </div>
 
-                <!-- Card 3 -->
                 <div class="card-product snap-center shrink-0 w-60 sm:w-72 md:w-80 h-[380px] sm:h-[450px] rounded-3xl overflow-hidden relative shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer group border border-white/10"
                     data-category="Makanan" data-title="Oniku Salted Egg" data-price="Rp 13.000"
                     data-desc="Onigiri saus telur asin yang lezat dan gurih. Dibalut nasi pulen yang mengenyangkan, menjadikannya pilihan praktis dan lezat untuk menemani aktivitas Anda kapan saja.">
@@ -266,7 +248,6 @@
                     </div>
                 </div>
 
-                <!-- Card 4 -->
                 <div class="card-product snap-center shrink-0 w-60 sm:w-72 md:w-80 h-[380px] sm:h-[450px] rounded-3xl overflow-hidden relative shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer group border border-white/10"
                     data-category="Makanan" data-title="Oniku Ayam Daun Jeruk Sambal Matah" data-price="Rp 12.000"
                     data-desc="Onigiri ayam daun jeruk sambal matah yang pedas dan gurih, dibalut nasi yang pulen cocok untuk mengisi perut Anda.">
@@ -290,7 +271,6 @@
                     </div>
                 </div>
 
-                <!-- Card 5 -->
                 <div class="card-product snap-center shrink-0 w-60 sm:w-72 md:w-80 h-[380px] sm:h-[450px] rounded-3xl overflow-hidden relative shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer group border border-white/10"
                     data-category="Makanan" data-title="Oniku Cheese Yaki" data-price="Rp 12.000"
                     data-desc="Onigiri dengan isian keju lumer yang creamy dan kombinasi saus lezat, memberikan sensasi gurih dan nikmat di setiap gigitannya.">
@@ -318,8 +298,6 @@
         </div>
     </section>
 
-
-    <!-- Section Produk Minuman -->
     <section id="minuman" class="w-full max-w-5xl px-3 sm:px-4 mt-4 mb-24">
 
         <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-8 gap-2">
@@ -332,7 +310,7 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-5 sm:gap-6 max-w-3xl mx-auto w-full">
 
-            <!-- Minuman 1 -->
+          
             <div class="card-product bg-[#352321]/90 backdrop-blur-md rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer border border-[#E8D0B8]/20 group flex flex-col"
                 data-category="Minuman" data-title="Mojito Leci Splash" data-price="Rp 6.000"
                 data-desc="Minuman segar dengan perpaduan rasa buah leci manis dan soda bersoda dingin. Paling nikmat diminum bersama onigiri favorit Anda saat cuaca terik!">
@@ -364,7 +342,6 @@
                 </div>
             </div>
 
-            <!-- Minuman 2 -->
             <div class="card-product bg-[#352321]/90 backdrop-blur-md rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer border border-[#E8D0B8]/20 group flex flex-col"
                 data-category="Minuman" data-title="Mojito Coco Pandan Splash" data-price="Rp 6.000"
                 data-desc="Minuman segar dengan perpaduan wangi kelapa pandan manis dan soda dingin. Menghadirkan kenikmatan tropis yang bikin nagih!">
@@ -399,8 +376,6 @@
         </div>
     </section>
 
-
-    <!-- Bundle Section -->
     <section id="bundle" class="w-full max-w-5xl px-3 sm:px-4 mt-4 mb-24">
 
         <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-8 gap-2">
@@ -413,7 +388,6 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 w-full">
 
-            <!-- Bundle A -->
             <div class="card-product bg-[#352321]/90 backdrop-blur-md rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer border border-[#E8D0B8]/20 group flex flex-col"
                 data-category="Bundle" data-title="Bundle Hemat 1" data-price="Rp 16.000"
                 data-desc="Pilihan praktis yang menggabungkan 1 Makanan Utama Onigiri dan 1 Minuman Mojito Segar. Lebih hemat dibanding beli satuan!">
@@ -445,12 +419,10 @@
                 </div>
             </div>
 
-            <!-- Bundle B -->
             <div class="card-product bg-[#352321]/90 backdrop-blur-md rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer border border-[#D97706]/40 group flex flex-col relative"
                 data-category="Bundle" data-title="Bundle Hemat 2" data-price="Rp 16.500"
                 data-desc="Paket Mantap berisi Onigiri Salted Egg gurih lezat dan 1 Mojito Dingin segar.">
-                
-                <!-- Highlight Badge -->
+               
                 <div class="absolute -top-3 right-5 sm:right-6 z-10 bg-[#D97706] text-white text-[10px] sm:text-[11px] font-extrabold px-3 py-1 rounded-full shadow-lg">
                     POPULAR 🔥
                 </div>
@@ -482,7 +454,6 @@
                 </div>
             </div>
 
-            <!-- Bundle C -->
             <div class="card-product bg-[#352321]/90 backdrop-blur-md rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer border border-[#E8D0B8]/20 group flex flex-col"
                 data-category="Bundle" data-title="Bundle Family C" data-price="Rp 38.000"
                 data-desc="Fest Bundle! Paket porsi kenyang maksimal isi 3 Onigiri dan 2 Mojito Segar. Nikmat tiada tara bersama keluarga atau sahabat!">
@@ -517,8 +488,6 @@
         </div>
     </section>
 
-
-    <!-- Cara Pesan / Quick Order Steps -->
     <section class="w-full max-w-5xl px-3 sm:px-4 mb-20">
         <div class="bg-[#352321]/80 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-[#E8D0B8]/15 shadow-xl w-full">
             <h3 class="text-center font-bold text-xl sm:text-2xl text-[#FFFDF8] mb-6 sm:mb-8">
@@ -556,11 +525,9 @@
     </section>
 
 
-    <!-- Call To Action (Order Section) -->
     <section class="w-full max-w-5xl px-3 sm:px-4 py-4 sm:py-8 mb-20">
         <div class="bg-gradient-to-r from-[#430C0E] to-[#91171D] rounded-3xl p-6 sm:p-12 text-center text-white shadow-2xl relative overflow-hidden border-2 border-[#D97706]/40 w-full">
             
-            <!-- Glow background effect -->
             <div class="absolute -top-24 -right-24 w-60 h-60 bg-[#D97706]/20 rounded-full blur-2xl pointer-events-none"></div>
 
             <span class="inline-block text-[11px] sm:text-xs font-extrabold tracking-widest text-[#E8D0B8] uppercase mb-2">
@@ -588,7 +555,6 @@
     </section>
 
 
-    <!-- Section Team -->
     <section id="teams" class="w-full max-w-5xl px-3 sm:px-4 py-16 sm:py-20 flex flex-col items-center overflow-hidden">
         
         <div class="text-center mb-4">
@@ -596,7 +562,6 @@
 
         </div>
 
-        <!-- Container Utama Avatar -->
         <div class="flex items-center justify-center gap-6 md:gap-16 my-6 sm:my-8 h-60 sm:h-64 w-full">
 
             <div id="avatar-left"
@@ -624,7 +589,6 @@
 
         <p id="character-title" class="text-xs sm:text-sm font-bold tracking-wider text-[#D97706] mb-5 sm:mb-6">MEMBER 1 OF 4</p>
 
-        <!-- Button Navigasi avatar -->
         <div class="flex gap-4 sm:gap-6">
             <button id="btn-prev" aria-label="Sebelumnya"
                 class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#352321] border border-[#E8D0B8]/30 text-white flex items-center justify-center shadow-lg hover:bg-[#91171D] hover:border-[#D97706] active:scale-90 transition">
@@ -637,14 +601,11 @@
         </div>
     </section>
 
-
-    <!-- Footer -->
     <footer class="w-full bg-[#91171D] text-gray-300 mt-12 sm:mt-16 border-t-2 border-[#D97706]/30">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-10">
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-8">
 
-                <!-- Brand -->
                 <div>
                     <div class="flex items-center gap-3 mb-3">
                         <img src="image/logo.jpg" alt="Logo" class="w-10 h-10 rounded-full border border-[#E8D0B8]/40">
@@ -655,7 +616,6 @@
                     </p>
                 </div>
 
-                <!-- Navigasi Cepat -->
                 <div>
                     <h3 class="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#E8D0B8] mb-3">
                         Navigasi Menu
@@ -669,7 +629,6 @@
                     </ul>
                 </div>
 
-                <!-- Kontak -->
                 <div>
                     <h3 class="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#E8D0B8] mb-3">
                         Hubungi Kami
@@ -684,7 +643,6 @@
 
             </div>
 
-            <!-- Bottom Footer -->
             <div class="border-t border-white/10 pt-5 sm:pt-6 flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4 text-center md:text-left">
 
                 <p class="text-xs text-[#FFFDF8]/80">
@@ -709,8 +667,6 @@
         </div>
     </footer>
 
-
-    <!-- Modal Detail Produk (Theme Aligned) -->
     <div id="product-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4">
         <div id="modal-backdrop" class="absolute inset-0 bg-black/75 backdrop-blur-sm"></div>
 
@@ -723,7 +679,6 @@
                 <i class="fa-solid fa-xmark text-sm"></i>
             </button>
 
-            <!-- Product Preview -->
             <div class="w-full aspect-[4/3] h-44 sm:h-56 bg-gray-900 flex items-center justify-center overflow-hidden relative">
                 <img id="modal-product-img" src="" alt="Preview Produk" class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-gradient-to-t from-[#2A1E1C] via-transparent to-transparent"></div>
